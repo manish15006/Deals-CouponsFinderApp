@@ -1,0 +1,120 @@
+<app-navbar></app-navbar>
+  <!--NAVBAR-->  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-DailyDeals" href="#page-top">
+        Daily Deals
+      </a>
+      <button class="navbar-toggler btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarNav">
+        <ul class="navbar-nav  ms-auto mb-2 ">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#" >Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Partners</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/coupons" >Coupons</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" routerLink="/coupons" >Coupons</a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/admin">Admin</a>
+              </li>
+            </ul>
+          </li> -->
+        </ul>
+        <button class="btn btn-block btn-warning google-sign-in  navbar-button" (click)="signInHandler()">
+          <img [src]="'assets/images/google.svg'" alt="google"/>
+          <span> User SignIn</span>
+        </button>
+        <button class="btn btn-warning navbar-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Admin SignIn</button>
+      </div>
+    </div>
+  </nav>
+<!--NAVBAR-->  
+<!-- <app-header></app-header> -->
+ <!--FOOTER-->  
+ <footer class="fixed-bottom bg-dark p-1">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-3"><span class="copyright text-warning">Copyright&nbsp;© DailyDeals 2021</span></div>
+            <div class="col-md-2">
+                <ul class="list-inline social-buttons">
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-inline quicklinks">
+
+                    <li class="list-inline-item"><span style="color: #fed136;">Contribute Now<i class="fa fa-inr" style="color: #fed136; padding-left: 8px;">100</i></span></li>
+                    <!-- <li class="list-inline-item"><a href="#">Terms of Use</a></li> -->
+                    <li class="list-inline-item"><span style="color: #fed136;">to add more features</span></li>
+                </ul>
+            </div>
+            <div class="col-md-1">
+              <ul class="list-inline ">
+                <!-- <span style="color: #fed136;">Contribute Now<i class="fa fa-inr" style="color: #fed136; margin-right: 10px;">100</i></span> -->
+                  <!-- <li class="list-inline-item"><p style="color: #fed136;">Contribute Now</p></li>
+                  <li class="list-inline-item"><i class="fa fa-inr" aria-hidden="true"  style="color: #fed136;">100</i></li> -->
+                  <li>
+                        <google-pay-button
+                        environment="TEST"
+                        buttonType="pay"
+                        buttonSizeMode="fill"
+                        buttonColor="white"
+                        [paymentRequest]="{
+                            apiVersion: 2,
+                            apiVersionMinor: 0,
+                            allowedPaymentMethods: [
+                              {
+                                type: 'CARD',
+                                parameters: {
+                                  allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                                  allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD']
+                                },
+                                tokenizationSpecification: {
+                                  type: 'PAYMENT_GATEWAY',
+                                  parameters: {
+                                    gateway: 'example',
+                                    gatewayMerchantId: 'exampleGatewayMerchantId'
+                                  }
+                                }
+                              }
+                            ],
+                            merchantInfo: {
+                                merchantId: '6818-8902-7761',
+                                merchantName: 'Gudupali Manish'
+                            },
+                            transactionInfo: {
+                              totalPriceStatus: 'FINAL',
+                              totalPriceLabel: 'Total',
+                              totalPrice: '10.00',
+                              currencyCode: 'INR',
+                              countryCode: 'IN'
+                            }
+                          }"
+                        (loadpaymentdata)="onLoadPaymentData($event)"
+                        >
+                         </google-pay-button>   
+                  </li>
+              </ul>
+          </div>
+        </div>
+    </div>
+  </footer>
+   <!--FOOTER-->  
+<router-outlet></router-outlet>

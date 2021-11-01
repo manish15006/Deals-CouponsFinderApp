@@ -1,0 +1,245 @@
+  <!--NAVBAR-->  
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-DailyDeals" href="#page-top">
+        Daily Deals
+      </a>
+      <button class="navbar-toggler btn-warning" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarNav">
+        <ul class="navbar-nav  ms-auto mb-2 ">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#" >Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Partners</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" routerLink="/coupons" >Coupons</a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/admin">Admin</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <button class="btn btn-warning navbar-button" data-bs-toggle="modal" data-bs-target="#exampleModal">Sign In</button>
+        
+      </div>
+    </div>
+  </nav> -->
+<!--NAVBAR-->  
+
+  <!-- <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
+    <div class="container">
+      <a class="navbar-DailyDeals" href="#page-top">
+        Daily Deals
+      </a>
+      <button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto text-uppercase">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="#" >Home</a>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+              <li class="nav-item"><a class="nav-link" href="#portfolio">Partners</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" routerLink="/coupons" >Coupons</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/admin">Admin</a>
+              </li>
+            </ul>
+        </div>
+    </div>
+  </nav> -->
+ 
+  <!--modelSTART-LOGIN-->  
+  <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+    <div class="modal-content" style="width: 40vw;" style="background-color: #323536;">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: white;">Please SignIn</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col"><div id="main-wrapper" class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="card border-0"  style="background-color: rgb(255, 235, 56);">
+                        <div class="card-body p-0">
+                            <div class="row no-gutters">
+                                <div class="col">
+                                    <div class="p-5">
+                                        <div class="mb-5">
+                                            <h3 class="h4 font-weight-bold text-theme">Login</h3>
+                                        </div>
+        
+                                        <h6 class="h5 mb-0">Welcome back!</h6>
+                                        <p class="text-muted mt-2 mb-5">Enter your email address and password to access admin panel.</p>
+        
+                                        <form [formGroup]="loginForm" (ngSubmit)=" login()">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" formControlName="useremail">
+                                            </div>
+                                            <div class="form-group mb-5">
+                                                <label for="exampleInputPassword1">Password</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword1"  formControlName="password">
+                                            </div>
+                                            <button type="submit" class="btn btn-dark">Login</button>
+                                            <a href="#l" class="forgot-link float-right text-dark" style="margin-left: 15px;">Forgot password?</a>
+                                        </form>
+                                        <!-- <form (ngSubmit)=" login()">
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail1">Email address</label>
+                                              <input type="email" class="form-control" id="exampleInputEmail1" [(ngModel)]="loginusers.useremail">
+                                          </div>
+                                          <div class="form-group mb-5">
+                                              <label for="exampleInputPassword1">Password</label>
+                                              <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="loginusers.password">
+                                          </div>
+                                          <button type="submit" class="btn btn-dark">Login</button>
+                                          <a href="#l" class="forgot-link float-right text-dark" style="margin-left: 15px;">Forgot password?</a>
+                                      </form> -->
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </div>
+                        <!-- end card-body -->
+                    </div>
+                    <!-- end card -->
+        
+                    <p class="text-muted text-center mt-3 mb-0">
+                      Don't have an account? <br>
+                      <a class="text-primary ml-1"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                        Click Joinus  Button 
+                      </a>
+                    </p>
+        
+                    <!-- end row -->
+        
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- Row -->
+        </div></div>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+    </div>
+</div>
+ <!--modelEND-LOGIN--> 
+ 
+ <!--modelSTART-SIGNUP-->  
+ <div class="modal fade"  id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" >
+  <div class="modal-content" style="width: 40vw;" style="background-color: #323536;">
+      <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel" style="color: white;">REGISTER HERE</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          
+          <div class="container">
+              <div class="row">
+                  <div class="col"><div id="main-wrapper" class="container">
+          <div class="row justify-content-center">
+              <div class="col-xl-10">
+                  <div class="card border-0"  style="background-color: rgb(255, 235, 56);">
+                      <div class="card-body p-0">
+                          <div class="row no-gutters">
+                              <div class="col">
+                                <div class="p-5">
+                                  <div class="mb-5">
+                                      <h3 class="h4 font-weight-bold text-theme">Register</h3>
+                                  </div>
+                                  <h6 class="h5 mb-0">Just Do Register.</h6>
+                                  <p class="text-muted mt-2 mb-5">If You Really Want To Know, Look In The Register.</p>
+                                  <!-- <form>
+                                      <div class="form-group">
+                                          <label for="yourName">Your name</label>
+                                          <input type="text" class="form-control" id="yourName" />
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="exampleInputEmail1">Email address</label>
+                                          <input type="email" class="form-control" id="exampleInputEmail1" />
+                                      </div>
+                                      <div class="form-group mb-5">
+                                          <label for="exampleInputPassword1">Password</label>
+                                          <input type="password" class="form-control" id="exampleInputPassword1" />
+                                      </div>
+                                      <button type="submit" class="btn btn-dark">Register</button>
+                                  </form> -->
+                                  <form (ngSubmit)=" registerUser()">
+                                    <div class="form-group">
+                                        <label for="email"><b>Email</b></label>
+                                        <input type="text" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="user.useremail" required>
+                                    </div>
+                                    <div class="form-group">
+                                  
+                                        <label for="psw"><b>password</b></label>
+                                        <input type="password" class="form-control"  placeholder="Enter Password" name="psw" [(ngModel)]="user.password"  required>
+                                    </div>
+                                    <div class="form-group mb-5">
+                           
+                                        <label for="psw-repeat"><b>Confirm Password</b></label>
+                                        <input type="password" class="form-control"  placeholder="Confirm password" name="psw" [(ngModel)]="user.password"  required>
+                                    </div>
+                                    <div class="form-group mb-5">
+             
+                                      <label>
+                                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                                      </label>
+                                  </div>
+                                    <button type="submit" class="btn btn-dark">Register</button>
+                                </form>
+                              </div>
+                              </div>
+                          </div>
+      
+                      </div>
+                      <!-- end card-body -->
+                  </div>
+                  <!-- end card -->
+      
+                  <p class="text-muted text-center mt-3 mb-0">
+                    Already have an account? <br>
+                    <a class="text-primary ml-1">
+                      SignIn
+                    </a>
+                  </p>
+                  <!-- end row -->
+      
+              </div>
+              <!-- end col -->
+          </div>
+          <!-- Row -->
+      </div></div>
+              </div>
+          </div>
+          
+      </div>
+
+  </div>
+  </div>
+</div>
+ <!--modelEND-SIGNUP--> 
+

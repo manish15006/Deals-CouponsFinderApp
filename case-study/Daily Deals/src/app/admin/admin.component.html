@@ -1,0 +1,161 @@
+<div style="background-color: rgb(110, 110, 110);">
+  <div class="container" style="padding-top: 20px;padding-bottom: 35px;margin-bottom: 50px; background-color: rgb(136, 136, 136);">
+    <div class="row">
+      <div>
+        <!-- <button class="btn btn-light" style="width: 150px;"><a href="/header">SignOut</a></button> -->
+        <a class="btn btn-light" href="#" role="button">SignOut</a>
+      </div>
+      <div>
+        <!-- Modal  for Add Coupon-->
+        <div class="modal fade" id="AddCouponModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="formValue">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">ID</label>
+                      <input type="email" formControlName="id"  class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Enter id" >
+                    </div>
+                    <label for="exampleInputEmail1">Provider</label>
+                    <input type="email" formControlName="provider" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter provider">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Code</label>
+                    <input type="email" formControlName="code" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter code">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Category</label>
+                    <input type="email" formControlName="category" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Category">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Description</label>
+                    <input type="email" formControlName="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Description">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Expiry Date</label>
+                    <input type="email" formControlName="expiryDate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter expirydate">
+                  </div>
+                  <button type="submit" class="btn btn-primary" (click)="addCoupon()">Add<!-- Add --></button>
+                  <!-- <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="updateCoupon()">Update</button> -->
+                  <!-- Add -->
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of the Add Coupon Modal -->
+
+        <div class="modal fade" id="AddCouponModel2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="formValue">
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">ID</label>
+                      <input type="email" formControlName="id"  class="form-control" id="exampleInputEmail1"  aria-describedby="emailHelp" placeholder="Enter id" >
+                    </div>
+                    <label for="exampleInputEmail1">Provider</label>
+                    <input type="email" formControlName="provider" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter provider">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Code</label>
+                    <input type="email" formControlName="code" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter code">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Category</label>
+                    <input type="email" formControlName="category" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Category">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Description</label>
+                    <input type="email" formControlName="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Description">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Expiry Date</label>
+                    <input type="email" formControlName="expiryDate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter expirydate">
+                  </div>
+                  <button type="submit" class="btn btn-primary" (click)="updateCoupons()">Update<!-- Add --></button>
+                  <!-- <button type="submit" class="btn btn-primary" data-dismiss="modal" (click)="updateCoupon()">Update</button> -->
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <span class="text-center text-bold">
+              <h3>Welcome to Admin Dashboard</h3>
+            </span>
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                <label class="col-form-label text-white text-bolder">Search : </label>
+              </div>
+              <div class="col-auto search-product">
+                <input type="text"  class="form-control" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="search">
+              </div>
+              <div class="col-auto">
+                <span class="form-text text-white">
+                  search by Provider, Code, Category, Description, & ExpiryDate
+                </span>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="m-3">
+                <button class="btn btn-md btn-warning" data-bs-toggle="modal" data-bs-target="#AddCouponModel">
+                  <i class="fa fa-plus-circle" aria-hidden="true"></i>Add Coupon </button>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-dark table-hover">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Provider</th>
+                      <th>Code</th>
+                      <th>Category</th>
+                      <th>Description</th>
+                      <th>Expiry Date</th>
+                      <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let product of coupons | filter:searchText">
+                      <td><span>{{product.id}}</span></td>
+                      <td><span>{{product.provider}}</span></td>
+                      <td><span>{{product.code}}</span></td>
+                      <td><span>{{product.category}}</span></td>
+                      <td><span>{{product.description}}</span></td>
+                      <td><span>{{product.expiryDate}}</span></td>
+
+                      <td>
+                        <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#AddCouponModel2" (click)="editCoupon(product)">
+                          <i class="fa fa-pencil" aria-hidden="true"></i></button>
+                        <button class="btn btn-sm btn-danger m-2" (click)="deleteCoupon(product.id)">
+                          <i class="fa fa-trash" aria-hidden="true"></i></button>
+                      </td>
+                    </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

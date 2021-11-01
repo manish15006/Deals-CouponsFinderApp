@@ -1,0 +1,103 @@
+
+<div style="background-color: rgb(110, 110, 110);">
+    <div class="container " style="padding-top: 20px;padding-bottom: 35px;margin-bottom: 50px; background-color: rgb(136, 136, 136);">
+      <div class="row ">
+        <!-- userprofile -->
+        <div class="container-fluid">
+          <div class="custom-card p-3" style="background-color: whitesmoke;border-radius: 20px;">
+
+            <div class="text-center mb-4">
+              <img [src]="userDetails?.photoUrl" alt="user-avatar" class="user-avatar"/>
+            </div>
+  
+            <p class="mb-2">
+              <span class="font-weight-bold">Name: </span>{{userDetails?.name}}
+            </p>
+  
+            <p class="mb-2">
+              <span class="font-weight-bold">Email: </span>{{userDetails?.email}}
+            </p>
+  
+            <button class="btn btn-block btn-danger mt-4" (click)="signOut()">Sign out</button>
+  
+          </div>
+        </div>
+        <!-- userprofile -->
+        <!-- searchfilter -->
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label class="col-form-label text-white text-bolder">Search : </label>
+          </div>
+          <div class="col-auto search-product">
+            <input type="text"  class="form-control" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="search">
+          </div>
+          <div class="col-auto">
+            <span class="form-text text-white">
+              search by Provider, Category
+            </span>
+          </div>
+        </div>
+        <!-- searchfilter -->
+        <!-- coupons -->
+        <div class="col-md-6 "   *ngFor="let product of coupons | filter:searchText">
+          <div class="container p-3">
+            <div class="row">
+              <div class="col-12 shadow mb-3 rounded coupon-card"  style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-3 coupon-card-element rounded-start">
+                    <div class="coupon-element1 text-center ">
+                      <p>{{product.description}}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-2 coupon-element2">
+                      <p class="deal-title">{{product.provider}}</p>
+                      <p class="deal-title">{{product.category}}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-3 text-center">
+                    <div class="mt-4">
+                      <button type="button" class="btn btn-warning p-1" (click)=updatepcode(product.code,product.expiryDate)  data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                        Show Code
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- coupons -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Copy the code and avail the Deal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <main class="modal__content">
+                  <!--            <p>Enter code at <a href="https://www.shutterstock.com/" target="_blank" rel="noopener noreferrer nofollow">https://www.shutterstock.com/</a></p>-->
+                  <p><span style="font-weight: bolder">Expiry Date : </span> {{edate}}</p>
+                  <div class="code-wrap">
+                    <div class="code">
+                      <p data-copy="SSTKD23MG6"><span  style="font-weight: bolder">Coupon Code : </span> {{pcode}}</p>
+                    </div>
+                    <!-- <btn class="btn btn-primary copy-text">Copy</btn> -->
+                  </div>
+                </main>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
