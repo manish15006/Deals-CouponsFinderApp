@@ -1,0 +1,23 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    name: ZuulGateway
+
+zuul:
+  routes:
+    coupon-service:
+      url: http://localhost:9001
+
+    admin-service:
+      url: http://localhost:9005
+
+#    AUTH-ADMIN:
+#      url: http://localhost:7002
+
+#    AUTH-USER:
+#      url: http://localhost:7001
+
+    LOGIN-REGISTER:
+      url: http://localhost:8006
