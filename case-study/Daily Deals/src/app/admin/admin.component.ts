@@ -58,15 +58,15 @@ export class AdminComponent implements OnInit {
     this.formValue.controls['category'].setValue(data.category);
     this.formValue.controls['description'].setValue(data.description);
     this.formValue.controls['expiryDate'].setValue(data.expiryDate);
-
+   
   }
 
 
   deleteCoupon(id:String){
 
-    console.log("in delete method")
+    alert("in delete method")
     this.adminService.DeleteCoupon(id).subscribe(res=>{this.result=res});
-    console.log("deleted User")
+    console.log("deleted coupon")
     this.ngOnInit();
 
 
@@ -78,7 +78,7 @@ export class AdminComponent implements OnInit {
   }
 
   updateCoupons(){
-    console.log("in add  method");
+    alert("refresh to update the coupon");
     this.userObj.id=this.formValue.value.id;
     this.userObj.provider=this.formValue.value.provider;
     this.userObj.code=this.formValue.value.code;
